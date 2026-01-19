@@ -35,12 +35,12 @@ Decimal phases appear between their surrounding integers in numeric order.
 2. Renderer process can communicate with Electron main process via IPC
 3. Application menu provides File, Edit, View, and Help menus with basic commands
 
-**Plans**: TBD
+**Plans**: 3 plans in 2 waves
 
 Plans:
-- [ ] 01-01: Electron wrapper packages Next.js app as desktop application
-- [ ] 01-02: IPC bridge enables renderer process to access SQLite via Server Actions
-- [ ] 01-03: Application menu provides basic commands (File, Edit, View, Help)
+- [ ] 01-01-PLAN.md — Electron wrapper packages Next.js app as desktop application
+- [ ] 01-02-PLAN.md — IPC bridge enables renderer process to access SQLite via secure contextBridge
+- [ ] 01-03-PLAN.md — Application menu provides basic commands (File, Edit, View, Help)
 
 ### Phase 2: Python ML Service
 
