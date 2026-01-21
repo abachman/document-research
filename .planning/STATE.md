@@ -10,31 +10,31 @@ See: .planning/PROJECT.md (updated 2026-01-19)
 ## Current Position
 
 Phase: 1 of 5 (Electron Foundation)
-Plan: 4 of 7 in current phase
+Plan: 6 of 7 in current phase
 Status: In progress
-Last activity: 2026-01-21 — Completed 01-04-PLAN.md (SQLite database and IPC handlers)
+Last activity: 2026-01-21 — Completed 01-06-PLAN.md (Application menu)
 
-Progress: [████░░░░░░] 11% (4/38 plans complete)
+Progress: [█████░░░░░] 13% (5/38 plans complete)
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 4
+- Total plans completed: 5
 - Average duration: <1 min
-- Total execution time: <2 min
+- Total execution time: <3 min
 
 **By Phase:**
 
 | Phase | Plans | Total | Avg/Plan |
 |-------|-------|-------|----------|
-| 1. Electron Foundation | 4 | <2 min | <1 min |
+| 1. Electron Foundation | 5 | <3 min | <1 min |
 | 2. Python ML Service | 0 | 0 | - |
 | 3. Document Management | 0 | 0 | - |
 | 4. Semantic Search | 0 | 0 | - |
 | 5. Reading & Annotation | 0 | 0 | - |
 
 **Recent Trend:**
-- Last 5 plans: 01-01 (<1 min), 01-02 (<1 min), 01-03 (<1 min), 01-04 (<1 min)
+- Last 5 plans: 01-01 (<1 min), 01-02 (<1 min), 01-03 (<1 min), 01-04 (<1 min), 01-06 (<1 min)
 - Trend: Fast configuration and implementation tasks
 
 *Updated after each plan completion*
@@ -45,6 +45,10 @@ Progress: [████░░░░░░] 11% (4/38 plans complete)
 
 Decisions are logged in PROJECT.md Key Decisions table.
 Recent decisions affecting current work:
+
+**From 01-06 (Application menu):**
+- Use Electron's built-in menu roles instead of custom handlers for standard operations (cut, copy, paste, etc.)
+- Platform detection with `process.platform === 'darwin'` for macOS-specific app menu
 
 **From 01-04 (SQLite database and IPC handlers):**
 - Use .js extension for ESM imports from .ts files (TypeScript transpilation requirement)
@@ -79,8 +83,8 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-01-21 (plan 01-04 execution)
-Stopped at: Completed 01-04-PLAN.md (SQLite database and IPC handlers)
+Last session: 2026-01-21 (plan 01-06 execution)
+Stopped at: Completed 01-06-PLAN.md (Application menu)
 Resume file: None
 
-**Next:** Plan 01-05 - Preload script IPC API
+**Next:** Plan 01-07 - Build configuration
