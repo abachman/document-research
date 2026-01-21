@@ -10,9 +10,9 @@ See: .planning/PROJECT.md (updated 2026-01-19)
 ## Current Position
 
 Phase: 1 of 5 (Electron Foundation)
-Plan: 6 of 7 in current phase
+Plan: 5 of 7 in current phase
 Status: In progress
-Last activity: 2026-01-21 — Completed 01-06-PLAN.md (Application menu)
+Last activity: 2026-01-21 — Completed 01-05-PLAN.md (Type-safe IPC bridge)
 
 Progress: [█████░░░░░] 13% (5/38 plans complete)
 
@@ -34,7 +34,7 @@ Progress: [█████░░░░░] 13% (5/38 plans complete)
 | 5. Reading & Annotation | 0 | 0 | - |
 
 **Recent Trend:**
-- Last 5 plans: 01-01 (<1 min), 01-02 (<1 min), 01-03 (<1 min), 01-04 (<1 min), 01-06 (<1 min)
+- Last 5 plans: 01-01 (<1 min), 01-02 (<1 min), 01-03 (<1 min), 01-04 (<1 min), 01-05 (<1 min)
 - Trend: Fast configuration and implementation tasks
 
 *Updated after each plan completion*
@@ -46,9 +46,11 @@ Progress: [█████░░░░░] 13% (5/38 plans complete)
 Decisions are logged in PROJECT.md Key Decisions table.
 Recent decisions affecting current work:
 
-**From 01-06 (Application menu):**
-- Use Electron's built-in menu roles instead of custom handlers for standard operations (cut, copy, paste, etc.)
-- Platform detection with `process.platform === 'darwin'` for macOS-specific app menu
+**From 01-05 (Type-safe IPC bridge):**
+- Expose only specific database methods (queryDatabase, execDatabase, initDatabase) via contextBridge
+- Never expose raw ipcRenderer to renderer process (security best practice)
+- Use TypeScript interfaces with Window augmentation for autocomplete
+- Include JSDoc comments with usage examples for developer experience
 
 **From 01-04 (SQLite database and IPC handlers):**
 - Use .js extension for ESM imports from .ts files (TypeScript transpilation requirement)
@@ -83,8 +85,8 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-01-21 (plan 01-06 execution)
-Stopped at: Completed 01-06-PLAN.md (Application menu)
+Last session: 2026-01-21 (plan 01-05 execution)
+Stopped at: Completed 01-05-PLAN.md (Type-safe IPC bridge)
 Resume file: None
 
-**Next:** Plan 01-07 - Build configuration
+**Next:** Plan 01-06 - Application menu
