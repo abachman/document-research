@@ -10,16 +10,16 @@ See: .planning/PROJECT.md (updated 2026-01-19)
 ## Current Position
 
 Phase: 1 of 5 (Electron Foundation)
-Plan: 3 of 7 in current phase
+Plan: 4 of 7 in current phase
 Status: In progress
-Last activity: 2026-01-21 — Completed 01-03-PLAN.md (Electron main process and preload script)
+Last activity: 2026-01-21 — Completed 01-04-PLAN.md (SQLite database and IPC handlers)
 
-Progress: [███░░░░░░░] 8% (3/38 plans complete)
+Progress: [████░░░░░░] 11% (4/38 plans complete)
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 3
+- Total plans completed: 4
 - Average duration: <1 min
 - Total execution time: <2 min
 
@@ -27,14 +27,14 @@ Progress: [███░░░░░░░] 8% (3/38 plans complete)
 
 | Phase | Plans | Total | Avg/Plan |
 |-------|-------|-------|----------|
-| 1. Electron Foundation | 3 | <3 min | <1 min |
+| 1. Electron Foundation | 4 | <2 min | <1 min |
 | 2. Python ML Service | 0 | 0 | - |
 | 3. Document Management | 0 | 0 | - |
 | 4. Semantic Search | 0 | 0 | - |
 | 5. Reading & Annotation | 0 | 0 | - |
 
 **Recent Trend:**
-- Last 5 plans: 01-01 (<1 min), 01-02 (<1 min), 01-03 (<1 min)
+- Last 5 plans: 01-01 (<1 min), 01-02 (<1 min), 01-03 (<1 min), 01-04 (<1 min)
 - Trend: Fast configuration and implementation tasks
 
 *Updated after each plan completion*
@@ -45,6 +45,11 @@ Progress: [███░░░░░░░] 8% (3/38 plans complete)
 
 Decisions are logged in PROJECT.md Key Decisions table.
 Recent decisions affecting current work:
+
+**From 01-04 (SQLite database and IPC handlers):**
+- Use .js extension for ESM imports from .ts files (TypeScript transpilation requirement)
+- Return structured responses {success, data/error} from IPC handlers for consistent error handling
+- Validate sender frame URL to prevent unauthorized access (app://-, localhost:3000 only)
 
 **From 01-03 (Electron main process and preload script):**
 - sandbox: false in webPreferences for development - will enable true for production security after testing
@@ -74,8 +79,8 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-01-21 (plan 01-03 execution)
-Stopped at: Completed 01-03-PLAN.md (Electron main process and preload script)
+Last session: 2026-01-21 (plan 01-04 execution)
+Stopped at: Completed 01-04-PLAN.md (SQLite database and IPC handlers)
 Resume file: None
 
-**Next:** Plan 01-04 - SQLite database layer and IPC handlers
+**Next:** Plan 01-05 - Preload script IPC API
