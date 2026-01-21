@@ -3,6 +3,7 @@ import { join } from 'path'
 import { fileURLToPath } from 'url'
 import electronServe from 'electron-serve'
 import { registerHandlers } from './ipc/handlers.js'
+import { createMenu } from './menu.js'
 
 const __dirname = fileURLToPath(new URL('.', import.meta.url))
 
@@ -40,6 +41,7 @@ const createWindow = () => {
 }
 
 app.whenReady().then(() => {
+  createMenu()
   registerHandlers()
   createWindow()
 })
