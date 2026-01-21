@@ -2,13 +2,22 @@
   "name": "document-research",
   "version": "0.1.0",
   "private": true,
+  "main": "out/main/index.js",
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
+    "dev": "concurrently -n \"NEXT,ELECTRON\" -c \"yellow,blue\" --kill-others \"next dev\" \"electron-vite dev\"",
+    "dev:next": "next dev",
+    "dev:electron": "electron-vite dev",
+    "build": "electron-vite build && next build",
+    "build:win": "npm run build && electron-builder --win",
+    "build:mac": "npm run build && electron-builder --mac",
+    "build:linux": "npm run build && electron-builder --linux",
+    "preview": "electron-vite preview",
     "start": "next start",
     "lint": "eslint"
   },
   "dependencies": {
+    "better-sqlite3": "^12.6.2",
+    "electron-serve": "^3.0.0",
     "next": "16.1.2",
     "react": "19.2.3",
     "react-dom": "19.2.3"
@@ -18,9 +27,14 @@
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "concurrently": "^9.2.1",
+    "electron": "^40.0.0",
+    "electron-builder": "^26.4.0",
+    "electron-vite": "^5.0.0",
     "eslint": "^9",
     "eslint-config-next": "16.1.2",
     "tailwindcss": "^4",
-    "typescript": "^5"
+    "typescript": "^5",
+    "vite": "^7.3.1"
   }
 }
