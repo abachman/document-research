@@ -2,6 +2,7 @@ import { app, BrowserWindow } from 'electron'
 import { join } from 'path'
 import { fileURLToPath } from 'url'
 import electronServe from 'electron-serve'
+import { registerHandlers } from './ipc/handlers.js'
 
 const __dirname = fileURLToPath(new URL('.', import.meta.url))
 
@@ -39,6 +40,7 @@ const createWindow = () => {
 }
 
 app.whenReady().then(() => {
+  registerHandlers()
   createWindow()
 })
 
