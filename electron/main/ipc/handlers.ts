@@ -32,7 +32,7 @@ function validateSender(frame: { url: string }): boolean {
 export function registerHandlers(): void {
   // Handler for executing SQL statements (INSERT, UPDATE, DELETE)
   ipcMain.handle('db:exec', (event, sql: string, params: unknown[] = []) => {
-    if (!validateSender(event.senderFrame)) {
+    if (!event.senderFrame || !validateSender(event.senderFrame)) {
       throw new Error('Unauthorized: Invalid sender origin')
     }
 
@@ -57,7 +57,7 @@ export function registerHandlers(): void {
 
   // Handler for executing SELECT queries
   ipcMain.handle('db:query', (event, sql: string, params: unknown[] = []) => {
-    if (!validateSender(event.senderFrame)) {
+    if (!event.senderFrame || !validateSender(event.senderFrame)) {
       throw new Error('Unauthorized: Invalid sender origin')
     }
 
@@ -81,7 +81,7 @@ export function registerHandlers(): void {
 
   // Handler for initializing database schema
   ipcMain.handle('db:init', (event) => {
-    if (!validateSender(event.senderFrame)) {
+    if (!event.senderFrame || !validateSender(event.senderFrame)) {
       throw new Error('Unauthorized: Invalid sender origin')
     }
 
