@@ -23,11 +23,13 @@ const createWindow = () => {
     }
   })
 
-  if (app.isPackaged) {
+  if (app.isPackaged && appServe) {
     // Production: Load static Next.js export
     appServe(win).then(() => {
       win.loadURL('app://-')
     })
+  } else if (app.isPackaged && !appServe) {
+    throw new Error('App is packaged but electron-serve is not configured.')
   } else {
     // Development: Load Next.js dev server
     win.loadURL('http://localhost:3000')
