@@ -13,7 +13,8 @@
     "build:linux": "npm run build && electron-builder --linux",
     "preview": "electron-vite preview",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "electron:rebuild": "electron-rebuild -f -w better-sqlite3"
   },
   "dependencies": {
     "better-sqlite3": "^12.6.2",
@@ -23,6 +24,7 @@
     "react-dom": "19.2.3"
   },
   "devDependencies": {
+    "@electron/rebuild": "^4.0.2",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",
