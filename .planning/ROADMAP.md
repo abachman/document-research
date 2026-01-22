@@ -35,12 +35,16 @@ Decimal phases appear between their surrounding integers in numeric order.
 2. Renderer process can communicate with Electron main process via IPC
 3. Application menu provides File, Edit, View, and Help menus with basic commands
 
-**Plans**: TBD
+**Plans**: 7 plans in 4 waves
 
 Plans:
-- [ ] 01-01: Electron wrapper packages Next.js app as desktop application
-- [ ] 01-02: IPC bridge enables renderer process to access SQLite via Server Actions
-- [ ] 01-03: Application menu provides basic commands (File, Edit, View, Help)
+- [ ] 01-01-PLAN.md — Install Electron dependencies and configure package.json
+- [ ] 01-02-PLAN.md — Configure Electron Forge with vite-typescript plugin
+- [ ] 01-03-PLAN.md — Create main process and preload script
+- [ ] 01-04-PLAN.md — Create SQLite database layer and IPC handlers
+- [ ] 01-05-PLAN.md — Update preload script and create TypeScript types
+- [ ] 01-06-PLAN.md — Create native application menu
+- [ ] 01-07-PLAN.md — Integration verification (checkpoint)
 
 ### Phase 2: Python ML Service
 
@@ -165,7 +169,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Electron Foundation | 0/3 | Not started | - |
+| 1. Electron Foundation | 0/7 | Not started | - |
 | 2. Python ML Service | 0/4 | Not started | - |
 | 3. Document Management | 0/6 | Not started | - |
 | 4. Semantic Search | 0/11 | Not started | - |
