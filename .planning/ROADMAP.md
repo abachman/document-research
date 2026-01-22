@@ -39,7 +39,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 
 Plans:
 - [ ] 01-01-PLAN.md — Install Electron dependencies and configure package.json
-- [ ] 01-02-PLAN.md — Configure Electron Forge with webpack plugin
+- [ ] 01-02-PLAN.md — Configure Electron Forge with vite-typescript plugin
 - [ ] 01-03-PLAN.md — Create main process and preload script
 - [ ] 01-04-PLAN.md — Create SQLite database layer and IPC handlers
 - [ ] 01-05-PLAN.md — Update preload script and create TypeScript types
