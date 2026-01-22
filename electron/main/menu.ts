@@ -66,13 +66,13 @@ export function createMenu() {
       {
         label: 'Documentation',
         click: () => {
-          shell.openExternal('https://github.com/yourusername/document-research')
+          shell.openExternal('https://github.com/abachman/document-research')
         }
       },
       {
         label: 'Report Issue',
         click: () => {
-          shell.openExternal('https://github.com/yourusername/document-research/issues')
+          shell.openExternal('https://github.com/abachman/document-research/issues')
         }
       }
     ]
