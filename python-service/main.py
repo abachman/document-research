@@ -14,6 +14,7 @@ import uvicorn
 from config import Config, config
 from utils.port_utils import get_available_port, write_port_file, get_port_file_path
 from api.health import router as health_router
+from api.pdf import router as pdf_router
 
 # Create FastAPI application
 app = FastAPI(
@@ -24,6 +25,9 @@ app = FastAPI(
 
 # Include health check router
 app.include_router(health_router, tags=["health"])
+
+# Include PDF router
+app.include_router(pdf_router, tags=["pdf"])
 
 
 @app.get("/")
