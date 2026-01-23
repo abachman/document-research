@@ -14,7 +14,7 @@
 ### Python Service
 
 - [ ] **PYTH-01**: Python service provides HTTP API for ML endpoints on localhost
-- [ ] **PYTH-02**: Python service extracts text from uploaded PDFs with semantic boundary chunking
+- [ ] **PYTH-02**: Python service extracts text from uploaded PDFs with token-aware chunking (semantic boundary awareness deferred to Phase 4)
 - [ ] **PYTH-03**: Python service integrates embedded Chroma database for vector storage
 - [ ] **PYTH-04**: Python service auto-starts when Electron application launches
 - [ ] **PYTH-05**: Python service uses Qwen 3 4B model for text embeddings
@@ -137,4 +137,4 @@
 
 ---
 *Requirements defined: 2026-01-19*
-*Last updated: 2026-01-19 after roadmap creation*
+*Last updated: 2026-01-23 to clarify PYTH-02 semantic chunking deferral*

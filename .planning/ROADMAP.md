@@ -57,8 +57,8 @@ Plans:
 **Success Criteria** (what must be TRUE):
 1. Python service starts automatically when Electron application launches
 2. Python service responds to HTTP requests on localhost
-3. Uploaded PDFs are processed with text extracted in semantically-aware chunks
-4. Text chunks and embeddings are stored in embedded Chroma database
+3. Uploaded PDFs are processed with text extracted in token-aware chunks
+4. Text chunks are stored in embedded Chroma database (embeddings added in Phase 4)
 
 **Plans**: 4 plans in 4 waves
 
