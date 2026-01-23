@@ -10,32 +10,32 @@ See: .planning/PROJECT.md (updated 2026-01-19)
 ## Current Position
 
 Phase: 2 of 5 (Python ML Service)
-Plan: 1 of 7 in current phase
+Plan: 2 of 7 in current phase
 Status: In progress
-Last activity: 2026-01-23 — Completed 02-01-PLAN.md (Python HTTP API service)
+Last activity: 2026-01-23 — Completed 02-02-PLAN.md (PDF text extraction with token-aware chunking)
 
-Progress: [██████░░░░] 16% (6/38 plans complete)
+Progress: [███████░░░] 18% (7/38 plans complete)
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 6
-- Average duration: <1 min
-- Total execution time: <5 min
+- Total plans completed: 7
+- Average duration: <2 min
+- Total execution time: <9 min
 
 **By Phase:**
 
 | Phase | Plans | Total | Avg/Plan |
 |-------|-------|-------|----------|
 | 1. Electron Foundation | 5 | <3 min | <1 min |
-| 2. Python ML Service | 1 | 3 min | 3 min |
+| 2. Python ML Service | 2 | 7 min | 3.5 min |
 | 3. Document Management | 0 | 0 | - |
 | 4. Semantic Search | 0 | 0 | - |
 | 5. Reading & Annotation | 0 | 0 | - |
 
 **Recent Trend:**
-- Last 5 plans: 01-01 (<1 min), 01-02 (<1 min), 01-03 (<1 min), 01-04 (<1 min), 01-05 (<1 min), 02-01 (3 min)
-- Trend: Fast configuration tasks transitioning to Python service foundation
+- Last 5 plans: 01-01 (<1 min), 01-02 (<1 min), 01-03 (<1 min), 01-04 (<1 min), 01-05 (<1 min), 02-01 (3 min), 02-02 (4 min)
+- Trend: Fast configuration tasks transitioning to Python service features
 
 *Updated after each plan completion*
 
@@ -45,6 +45,15 @@ Progress: [██████░░░░] 16% (6/38 plans complete)
 
 Decisions are logged in PROJECT.md Key Decisions table.
 Recent decisions affecting current work:
+
+**From 02-02 (PDF text extraction with token-aware chunking):**
+- PyMuPDF over PyPDF2 for faster and more accurate position tracking
+- tiktoken cl100k_base encoding (GPT-4 tokenizer) for chunk boundaries
+- 500 token chunks with 50 token overlap for context preservation
+- Position tracking (page_num, char_offset) for future PDF navigation
+- Service layer pattern - services/ package for business logic separate from API
+- Token-aware chunking using tiktoken encoding for ML-friendly text splits
+- tiktoken>=0.8.0 to use latest version with Python 3.14 wheels
 
 **From 02-01 (Python HTTP API service):**
 - Dynamic port binding with file sync - use socket.bind((host, 0)) to find available port automatically
@@ -92,8 +101,8 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-01-23 (plan 02-01 execution)
-Stopped at: Completed 02-01-PLAN.md (Python HTTP API service)
+Last session: 2026-01-23 (plan 02-02 execution)
+Stopped at: Completed 02-02-PLAN.md (PDF text extraction with token-aware chunking)
 Resume file: None
 
-**Next:** Plan 02-02 - PDF upload endpoint
+**Next:** Plan 02-03 - ChromaDB vector storage for document chunks
