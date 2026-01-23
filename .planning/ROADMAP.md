@@ -57,16 +57,16 @@ Plans:
 **Success Criteria** (what must be TRUE):
 1. Python service starts automatically when Electron application launches
 2. Python service responds to HTTP requests on localhost
-3. Uploaded PDFs are processed with text extracted in semantically-aware chunks
-4. Text chunks and embeddings are stored in embedded Chroma database
+3. Uploaded PDFs are processed with text extracted in token-aware chunks
+4. Text chunks are stored in embedded Chroma database (embeddings added in Phase 4)
 
-**Plans**: TBD
+**Plans**: 4 plans in 4 waves
 
 Plans:
-- [ ] 02-01: Python service provides HTTP API for ML endpoints on localhost
-- [ ] 02-02: Python service extracts text from uploaded PDFs with semantic boundary chunking
-- [ ] 02-03: Python service integrates embedded Chroma database for vector storage
-- [ ] 02-04: Python service auto-starts when Electron application launches
+- [ ] 02-01-PLAN.md — Python HTTP API foundation with FastAPI and health check
+- [ ] 02-02-PLAN.md — PDF text extraction with token-aware chunking
+- [ ] 02-03-PLAN.md — ChromaDB vector storage integration
+- [ ] 02-04-PLAN.md — Electron integration with auto-start and lifecycle management
 
 ### Phase 3: Document Management
 
