@@ -3,9 +3,7 @@
 FastAPI application that starts on an available port and exposes HTTP endpoints
 for PDF processing and semantic search.
 """
-import socket
 import sys
-from pathlib import Path
 
 # Set PYTHONUNBUFFERED for real-time logging
 sys.stdout.reconfigure(line_buffering=True)
@@ -14,44 +12,8 @@ from fastapi import FastAPI
 import uvicorn
 
 from config import Config, config
-
-
-def get_available_port(host: str = "127.0.0.1") -> int:
-    """Find an available port on the specified host.
-
-    Args:
-        host: The host address to bind to (default: 127.0.0.1)
-
-    Returns:
-        An available port number
-    """
-    with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
-        s.bind((host, 0))
-        s.listen(1)
-        port = s.getsockname()[1]
-    return port
-
-
-def get_port_file_path() -> Path:
-    """Get the platform-appropriate path for the port file.
-
-    Returns:
-        Path object pointing to the port file location
-    """
-    filename = "doc-research-ml-port.txt"
-    return Path("/tmp") / filename
-
-
-def write_port_file(port: int, path: Path) -> None:
-    """Write the port number to a file for Electron to discover.
-
-    Args:
-        port: The port number to write
-        path: The file path to write to
-    """
-    path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(str(port))
-
+from utils.port_utils import get_available_port, write_port_file, get_port_file_path
+from api.health import router as health_router
 
 # Create FastAPI application
 app = FastAPI(
@@ -59,6 +21,9 @@ app = FastAPI(
     description="Local ML service for PDF processing and semantic search",
     version="0.1.0",
 )
+
+# Include health check router
+app.include_router(health_router, tags=["health"])
 
 
 @app.get("/")
