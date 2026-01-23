@@ -3,6 +3,8 @@
 Provides configuration class with host, port, and logging settings.
 """
 import os
+import platform
+from pathlib import Path
 from dataclasses import dataclass
 from typing import Literal
 
@@ -30,5 +32,42 @@ class Config:
         )
 
 
+def get_app_data_path() -> Path:
+    """Get platform-appropriate application data directory.
+
+    Returns:
+        Path to the application data directory for the current platform.
+        Creates the directory if it doesn't exist.
+
+    Platform locations:
+        macOS:     ~/Library/Application Support/document-research
+        Windows:   ~/AppData/Local/document-research
+        Linux:     ~/.local/share/document-research
+    """
+    app_name = "document-research"
+    system = platform.system()
+
+    if system == "Darwin":  # macOS
+        base = Path.home() / "Library" / "Application Support" / app_name
+    elif system == "Windows":
+        base = Path.home() / "AppData" / "Local" / app_name
+    else:  # Linux and others
+        base = Path.home() / ".local" / "share" / app_name
+
+    # Create directory if it doesn't exist
+    base.mkdir(parents=True, exist_ok=True)
+    return base
+
+
 # Default configuration instance
 config = Config.from_env()
+
+# ChromaDB storage directory (persistent vector database storage)
+CHROMA_DIR = get_app_data_path() / "chroma"
+
+# Ensure ChromaDB directory exists
+CHROMA_DIR.mkdir(parents=True, exist_ok=True)
+
+# Upload directory for temporary PDF storage
+UPLOAD_DIR = Path("/tmp/doc-research-uploads")
+UPLOAD_DIR.mkdir(parents=True, exist_ok=True)
