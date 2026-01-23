@@ -5,37 +5,37 @@
 See: .planning/PROJECT.md (updated 2026-01-19)
 
 **Core value:** Users can upload, organize, search, and annotate PDF documents entirely on their local machine with semantic understanding powered by local ML models.
-**Current focus:** Phase 1: Electron Foundation
+**Current focus:** Phase 2: Python ML Service
 
 ## Current Position
 
-Phase: 1 of 5 (Electron Foundation)
-Plan: 5 of 7 in current phase
+Phase: 2 of 5 (Python ML Service)
+Plan: 1 of 7 in current phase
 Status: In progress
-Last activity: 2026-01-21 — Completed 01-05-PLAN.md (Type-safe IPC bridge)
+Last activity: 2026-01-23 — Completed 02-01-PLAN.md (Python HTTP API service)
 
-Progress: [█████░░░░░] 13% (5/38 plans complete)
+Progress: [██████░░░░] 16% (6/38 plans complete)
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 5
+- Total plans completed: 6
 - Average duration: <1 min
-- Total execution time: <3 min
+- Total execution time: <5 min
 
 **By Phase:**
 
 | Phase | Plans | Total | Avg/Plan |
 |-------|-------|-------|----------|
 | 1. Electron Foundation | 5 | <3 min | <1 min |
-| 2. Python ML Service | 0 | 0 | - |
+| 2. Python ML Service | 1 | 3 min | 3 min |
 | 3. Document Management | 0 | 0 | - |
 | 4. Semantic Search | 0 | 0 | - |
 | 5. Reading & Annotation | 0 | 0 | - |
 
 **Recent Trend:**
-- Last 5 plans: 01-01 (<1 min), 01-02 (<1 min), 01-03 (<1 min), 01-04 (<1 min), 01-05 (<1 min)
-- Trend: Fast configuration and implementation tasks
+- Last 5 plans: 01-01 (<1 min), 01-02 (<1 min), 01-03 (<1 min), 01-04 (<1 min), 01-05 (<1 min), 02-01 (3 min)
+- Trend: Fast configuration tasks transitioning to Python service foundation
 
 *Updated after each plan completion*
 
@@ -45,6 +45,13 @@ Progress: [█████░░░░░] 13% (5/38 plans complete)
 
 Decisions are logged in PROJECT.md Key Decisions table.
 Recent decisions affecting current work:
+
+**From 02-01 (Python HTTP API service):**
+- Dynamic port binding with file sync - use socket.bind((host, 0)) to find available port automatically
+- Port file written to /tmp/doc-research-ml-port.txt for Electron discovery
+- PYTHONUNBUFFERED=1 for real-time logging visibility during development
+- Modular structure with api/ and utils/ packages for extensibility
+- FastAPI router pattern - separate routers in api/ package, include in main app
 
 **From 01-05 (Type-safe IPC bridge):**
 - Expose only specific database methods (queryDatabase, execDatabase, initDatabase) via contextBridge
@@ -85,8 +92,8 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-01-21 (plan 01-05 execution)
-Stopped at: Completed 01-05-PLAN.md (Type-safe IPC bridge)
+Last session: 2026-01-23 (plan 02-01 execution)
+Stopped at: Completed 02-01-PLAN.md (Python HTTP API service)
 Resume file: None
 
-**Next:** Plan 01-06 - Application menu
+**Next:** Plan 02-02 - PDF upload endpoint
