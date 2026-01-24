@@ -15,7 +15,7 @@ This roadmap delivers the application through five phases: establishing the Elec
 Decimal phases appear between their surrounding integers in numeric order.
 
 - [ ] **Phase 1: Electron Foundation** - Desktop app wrapper with IPC bridge and application menu
-- [ ] **Phase 2: Python ML Service** - Local HTTP API for PDF processing and vector storage
+- [x] **Phase 2: Python ML Service** - Local HTTP API for PDF processing and vector storage (Completed 2026-01-24)
 - [ ] **Phase 3: Document Management** - Upload, browse, and organize PDFs with tags
 - [ ] **Phase 4: Semantic Search** - Qwen-powered search with embeddings and reranking
 - [ ] **Phase 5: Reading & Annotation** - PDF rendering with highlights, notes, and cross-document linking
@@ -63,10 +63,10 @@ Plans:
 **Plans**: 4 plans in 4 waves
 
 Plans:
-- [ ] 02-01-PLAN.md — Python HTTP API foundation with FastAPI and health check
-- [ ] 02-02-PLAN.md — PDF text extraction with token-aware chunking
-- [ ] 02-03-PLAN.md — ChromaDB vector storage integration
-- [ ] 02-04-PLAN.md — Electron integration with auto-start and lifecycle management
+- [x] 02-01-PLAN.md — Python HTTP API foundation with FastAPI and health check
+- [x] 02-02-PLAN.md — PDF text extraction with token-aware chunking
+- [x] 02-03-PLAN.md — ChromaDB vector storage integration
+- [x] 02-04-PLAN.md — Electron integration with auto-start and lifecycle management
 
 ### Phase 3: Document Management
 
@@ -170,7 +170,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Electron Foundation | 0/7 | Not started | - |
-| 2. Python ML Service | 0/4 | Not started | - |
+| 2. Python ML Service | 4/4 | Complete | 2026-01-24 |
 | 3. Document Management | 0/6 | Not started | - |
 | 4. Semantic Search | 0/11 | Not started | - |
 | 5. Reading & Annotation | 0/14 | Not started | - |
