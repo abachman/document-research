@@ -10,32 +10,32 @@ See: .planning/PROJECT.md (updated 2026-01-19)
 ## Current Position
 
 Phase: 2 of 5 (Python ML Service)
-Plan: 2 of 7 in current phase
+Plan: 3 of 7 in current phase
 Status: In progress
-Last activity: 2026-01-23 — Completed 02-02-PLAN.md (PDF text extraction with token-aware chunking)
+Last activity: 2026-01-24 — Completed 02-03-PLAN.md (ChromaDB vector storage integration)
 
-Progress: [███████░░░] 18% (7/38 plans complete)
+Progress: [████████░░░] 21% (8/38 plans complete)
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 7
+- Total plans completed: 8
 - Average duration: <2 min
-- Total execution time: <9 min
+- Total execution time: <17 min
 
 **By Phase:**
 
 | Phase | Plans | Total | Avg/Plan |
 |-------|-------|-------|----------|
 | 1. Electron Foundation | 5 | <3 min | <1 min |
-| 2. Python ML Service | 2 | 7 min | 3.5 min |
+| 2. Python ML Service | 3 | 15 min | 5 min |
 | 3. Document Management | 0 | 0 | - |
 | 4. Semantic Search | 0 | 0 | - |
 | 5. Reading & Annotation | 0 | 0 | - |
 
 **Recent Trend:**
-- Last 5 plans: 01-01 (<1 min), 01-02 (<1 min), 01-03 (<1 min), 01-04 (<1 min), 01-05 (<1 min), 02-01 (3 min), 02-02 (4 min)
-- Trend: Fast configuration tasks transitioning to Python service features
+- Last 5 plans: 01-05 (<1 min), 02-01 (3 min), 02-02 (4 min), 02-03 (8 min)
+- Trend: Python ML service features taking longer as complexity increases
 
 *Updated after each plan completion*
 
@@ -45,6 +45,13 @@ Progress: [███████░░░] 18% (7/38 plans complete)
 
 Decisions are logged in PROJECT.md Key Decisions table.
 Recent decisions affecting current work:
+
+**From 02-03 (ChromaDB vector storage integration):**
+- Python 3.13 required for python-service - ChromaDB (Pydantic v1, onnxruntime) incompatible with Python 3.14
+- Single ChromaDB collection with doc_id metadata filtering instead of separate collections per document
+- Background task processing for PDF uploads to prevent HTTP timeout on large files
+- Platform-specific app data paths for ChromaDB persistence (macOS: ~/Library/Application Support)
+- Cosine similarity distance metric for vector embeddings (hnsw:space)
 
 **From 02-02 (PDF text extraction with token-aware chunking):**
 - PyMuPDF over PyPDF2 for faster and more accurate position tracking
@@ -101,8 +108,8 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-01-23 (plan 02-02 execution)
-Stopped at: Completed 02-02-PLAN.md (PDF text extraction with token-aware chunking)
+Last session: 2026-01-24 (plan 02-03 execution)
+Stopped at: Completed 02-03-PLAN.md (ChromaDB vector storage integration)
 Resume file: None
 
-**Next:** Plan 02-03 - ChromaDB vector storage for document chunks
+**Next:** Plan 02-04 - Electron integration with Python ML service
