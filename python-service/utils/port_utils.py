@@ -4,6 +4,7 @@ This module provides functions for finding available ports and writing
 port information to files for Electron process discovery.
 """
 import socket
+import tempfile
 from pathlib import Path
 
 
@@ -26,11 +27,15 @@ def get_available_port(host: str = "127.0.0.1") -> int:
 def get_port_file_path() -> Path:
     """Get the platform-appropriate path for the port file.
 
+    Uses tempfile.gettempdir() for cross-platform compatibility:
+    - macOS/Linux: /tmp
+    - Windows: %TEMP% (typically C:\\Users\\<username>\\AppData\\Local\\Temp)
+
     Returns:
         Path object pointing to the port file location
     """
     filename = "doc-research-ml-port.txt"
-    return Path("/tmp") / filename
+    return Path(tempfile.gettempdir()) / filename
 
 
 def write_port_file(port: int, path: Path | None = None) -> None:
@@ -45,3 +50,16 @@ def write_port_file(port: int, path: Path | None = None) -> None:
         path = get_port_file_path()
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(str(port))
+
+
+def remove_port_file(path: Path | None = None) -> None:
+    """Remove the port file (cleanup on shutdown).
+
+    Args:
+        path: Optional file path to remove. If not provided, uses
+            get_port_file_path() to determine the location.
+    """
+    if path is None:
+        path = get_port_file_path()
+    if path.exists():
+        path.unlink()
