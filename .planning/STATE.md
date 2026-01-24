@@ -10,31 +10,31 @@ See: .planning/PROJECT.md (updated 2026-01-19)
 ## Current Position
 
 Phase: 2 of 5 (Python ML Service)
-Plan: 3 of 7 in current phase
+Plan: 4 of 7 in current phase
 Status: In progress
-Last activity: 2026-01-24 — Completed 02-03-PLAN.md (ChromaDB vector storage integration)
+Last activity: 2026-01-24 — Completed 02-04-PLAN.md (Electron integration with Python service)
 
-Progress: [████████░░░] 21% (8/38 plans complete)
+Progress: [██████████] 24% (9/38 plans complete)
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 8
-- Average duration: <2 min
-- Total execution time: <17 min
+- Total plans completed: 9
+- Average duration: <3 min
+- Total execution time: <25 min
 
 **By Phase:**
 
 | Phase | Plans | Total | Avg/Plan |
 |-------|-------|-------|----------|
 | 1. Electron Foundation | 5 | <3 min | <1 min |
-| 2. Python ML Service | 3 | 15 min | 5 min |
+| 2. Python ML Service | 4 | 23 min | 6 min |
 | 3. Document Management | 0 | 0 | - |
 | 4. Semantic Search | 0 | 0 | - |
 | 5. Reading & Annotation | 0 | 0 | - |
 
 **Recent Trend:**
-- Last 5 plans: 01-05 (<1 min), 02-01 (3 min), 02-02 (4 min), 02-03 (8 min)
+- Last 5 plans: 01-05 (<1 min), 02-01 (3 min), 02-02 (4 min), 02-03 (8 min), 02-04 (8 min)
 - Trend: Python ML service features taking longer as complexity increases
 
 *Updated after each plan completion*
@@ -45,6 +45,14 @@ Progress: [████████░░░] 21% (8/38 plans complete)
 
 Decisions are logged in PROJECT.md Key Decisions table.
 Recent decisions affecting current work:
+
+**From 02-04 (Electron integration with Python service):**
+- Lazy Python service initialization - Start on first IPC call (py:start), not app startup
+- File-based port discovery with polling (100ms interval, 5s timeout) for async service discovery
+- Cross-platform temp directory using tempfile.gettempdir() (handles macOS/Linux/Windows)
+- Python runtime NOT bundled in v1 - Users need Python 3.10+ installed
+- Auto-restart on crash up to 3 times before emitting error event
+- Signal handlers (SIGTERM/SIGINT) for graceful shutdown with port file cleanup
 
 **From 02-03 (ChromaDB vector storage integration):**
 - Python 3.13 required for python-service - ChromaDB (Pydantic v1, onnxruntime) incompatible with Python 3.14
@@ -108,8 +116,8 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-01-24 (plan 02-03 execution)
-Stopped at: Completed 02-03-PLAN.md (ChromaDB vector storage integration)
+Last session: 2026-01-24 (plan 02-04 execution)
+Stopped at: Completed 02-04-PLAN.md (Electron integration with Python service)
 Resume file: None
 
-**Next:** Plan 02-04 - Electron integration with Python ML service
+**Next:** Plan 02-05 or Phase 3 start - Document Management UI
