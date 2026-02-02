@@ -19,13 +19,13 @@
   },
   "dependencies": {
     "better-sqlite3": "^12.6.2",
-    "electron-serve": "^3.0.0",
-    "next": "16.1.2",
-    "react": "19.2.3",
-    "react-dom": "19.2.3"
+    "electron-serve": "^3.0.1",
+    "next": "16.1.6",
+    "react": "19.2.4",
+    "react-dom": "19.2.4"
   },
   "devDependencies": {
-    "@electron/rebuild": "^4.0.2",
+    "@electron/rebuild": "^4.0.3",
     "@tailwindcss/postcss": "^4",
     "@types/better-sqlite3": "^7.6.13",
     "@types/node": "^20",
@@ -33,10 +33,10 @@
     "@types/react-dom": "^19",
     "concurrently": "^9.2.1",
     "electron": "^40.0.0",
-    "electron-builder": "^26.4.0",
+    "electron-builder": "^26.5.0",
     "electron-vite": "^5.0.0",
     "eslint": "^9",
-    "eslint-config-next": "16.1.2",
+    "eslint-config-next": "16.1.6",
     "tailwindcss": "^4",
     "typescript": "^5",
     "vite": "^7.3.1"
