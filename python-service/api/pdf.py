@@ -4,23 +4,22 @@ This module provides HTTP endpoints for uploading PDF files, extracting text,
 and chunking the content for vector storage.
 """
 
-from fastapi import APIRouter, UploadFile, File, HTTPException, BackgroundTasks
-from fastapi.responses import JSONResponse
+import logging
+import shutil
 import uuid
 from pathlib import Path
-import shutil
-from typing import Dict
-import logging
+from typing import Any, Dict
 
-from services.pdf_extractor import extract_pdf_pages
-from services.chunker import chunk_text_by_tokens
-from services.vector_store import (
-    get_documents_collection,
-    add_document_chunks,
-    query_by_document,
-    delete_document
-)
+from fastapi import APIRouter, BackgroundTasks, File, HTTPException, UploadFile
 from models.schemas import UploadResponse
+from services.chunker import chunk_text_by_tokens
+from services.pdf_extractor import extract_pdf_pages
+from services.vector_store import (
+    add_document_chunks,
+    delete_document,
+    get_documents_collection,
+    query_by_document,
+)
 
 # Configure logging
 logger = logging.getLogger(__name__)
@@ -148,8 +147,8 @@ async def upload_pdf(
         )
 
 
-@router.get("/documents/{doc_id}")
-async def get_document(doc_id: str) -> Dict[str, any]:
+@router.get("/documents/{doc_id}", response_model=None)
+async def get_document(doc_id: str) -> Dict[str, Any]:
     """Get document chunks from ChromaDB by doc_id.
 
     Retrieves all stored chunks for a document using metadata filtering.
@@ -203,8 +202,8 @@ async def get_document(doc_id: str) -> Dict[str, any]:
         )
 
 
-@router.delete("/documents/{doc_id}")
-async def delete_document_endpoint(doc_id: str) -> Dict[str, any]:
+@router.delete("/documents/{doc_id}", response_model=None)
+async def delete_document_endpoint(doc_id: str) -> Dict[str, Any]:
     """Delete document chunks from ChromaDB by doc_id.
 
     Removes all chunks associated with a document from the vector store.
