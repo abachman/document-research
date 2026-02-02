@@ -13,10 +13,10 @@
 
 ### Python Service
 
-- [ ] **PYTH-01**: Python service provides HTTP API for ML endpoints on localhost
-- [ ] **PYTH-02**: Python service extracts text from uploaded PDFs with token-aware chunking (semantic boundary awareness deferred to Phase 4)
-- [ ] **PYTH-03**: Python service integrates embedded Chroma database for vector storage
-- [ ] **PYTH-04**: Python service auto-starts when Electron application launches
+- [x] **PYTH-01**: Python service provides HTTP API for ML endpoints on localhost
+- [x] **PYTH-02**: Python service extracts text from uploaded PDFs with token-aware chunking (semantic boundary awareness deferred to Phase 4)
+- [x] **PYTH-03**: Python service integrates embedded Chroma database for vector storage
+- [x] **PYTH-04**: Python service auto-starts when Electron application launches
 - [ ] **PYTH-05**: Python service uses Qwen 3 4B model for text embeddings
 - [ ] **PYTH-06**: Python service uses Qwen 3 4B model for reranking search results
 - [ ] **PYTH-07**: Python service stores PDF text chunks and embeddings in Chroma
@@ -94,10 +94,10 @@
 | ELEC-01 | Phase 1 | Pending |
 | ELEC-02 | Phase 1 | Pending |
 | ELEC-03 | Phase 1 | Pending |
-| PYTH-01 | Phase 2 | Pending |
-| PYTH-02 | Phase 2 | Pending |
-| PYTH-03 | Phase 2 | Pending |
-| PYTH-04 | Phase 2 | Pending |
+| PYTH-01 | Phase 2 | Complete |
+| PYTH-02 | Phase 2 | Complete |
+| PYTH-03 | Phase 2 | Complete |
+| PYTH-04 | Phase 2 | Complete |
 | DOCB-01 | Phase 3 | Pending |
 | DOCB-02 | Phase 3 | Pending |
 | DOCB-03 | Phase 3 | Pending |

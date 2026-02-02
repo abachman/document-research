@@ -2,7 +2,7 @@ import { contextBridge, ipcRenderer } from 'electron'
 
 /**
  * Electron API exposed to renderer process via contextBridge
- * Provides type-safe database access through IPC
+ * Provides type-safe database and Python service access through IPC
  */
 contextBridge.exposeInMainWorld('electronAPI', {
   /**
@@ -31,5 +31,34 @@ contextBridge.exposeInMainWorld('electronAPI', {
    */
   initDatabase: () => {
     return ipcRenderer.invoke('db:init')
+  },
+
+  /**
+   * Python service API
+   */
+  python: {
+    /**
+     * Start the Python ML service
+     * @returns Promise resolving to service port
+     */
+    startService: () => {
+      return ipcRenderer.invoke('py:start')
+    },
+
+    /**
+     * Check Python service health
+     * @returns Promise resolving to health status
+     */
+    healthCheck: () => {
+      return ipcRenderer.invoke('py:health')
+    },
+
+    /**
+     * Get current Python service port
+     * @returns Promise resolving to port number (or null if not started)
+     */
+    getPort: () => {
+      return ipcRenderer.invoke('py:get-port')
+    }
   }
 })

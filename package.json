@@ -2,6 +2,7 @@
   "name": "document-research",
   "version": "0.1.0",
   "private": true,
+  "description": "Local PDF document research tool with semantic search powered by local ML models",
   "main": "out/main/index.js",
   "scripts": {
     "dev": "concurrently -n \"NEXT,ELECTRON\" -c \"yellow,blue\" --kill-others \"next dev\" \"electron-vite dev\"",

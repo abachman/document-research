@@ -35,8 +35,75 @@ export interface DatabaseInitResult {
 }
 
 /**
+ * Result structure returned by Python service start
+ */
+export interface PythonServiceStartResult {
+  success: boolean
+  port?: number
+  error?: string
+}
+
+/**
+ * Result structure returned by Python service health check
+ */
+export interface PythonServiceHealthResult {
+  success: boolean
+  port?: number
+  error?: string
+}
+
+/**
+ * Result structure returned by Python service get-port
+ */
+export interface PythonServicePortResult {
+  success: boolean
+  port?: number
+}
+
+/**
+ * Python service API
+ */
+export interface PythonService {
+  /**
+   * Start the Python ML service
+   * @returns Promise resolving to service port
+   *
+   * @example
+   * const result = await window.electronAPI.python.startService()
+   * if (result.success) {
+   *   console.log('Python service running on port:', result.port)
+   * }
+   */
+  startService(): Promise<PythonServiceStartResult>
+
+  /**
+   * Check Python service health
+   * @returns Promise resolving to health status
+   *
+   * @example
+   * const result = await window.electronAPI.python.healthCheck()
+   * if (result.success) {
+   *   console.log('Service is healthy on port:', result.port)
+   * }
+   */
+  healthCheck(): Promise<PythonServiceHealthResult>
+
+  /**
+   * Get current Python service port
+   * @returns Promise resolving to port number (or null if not started)
+   *
+   * @example
+   * const result = await window.electronAPI.python.getPort()
+   * if (result.success && result.port) {
+   *   console.log('Service port:', result.port)
+   * }
+   */
+  getPort(): Promise<PythonServicePortResult>
+}
+
+/**
  * Electron API exposed to renderer process via contextBridge
- * Provides type-safe database access through IPC
+ * Provides type-safe database and Python service access through IPC
  */
 export interface ElectronAPI {
   /**
@@ -85,6 +152,11 @@ export interface ElectronAPI {
    * }
    */
   initDatabase: () => Promise<DatabaseInitResult>
+
+  /**
+   * Python ML service API
+   */
+  python: PythonService
 }
 
 /**
