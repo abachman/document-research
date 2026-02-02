@@ -26,10 +26,10 @@ Document Research is a desktop application that allows you to upload, organize, 
 
 ```bash
 # Install dependencies
-npm install
+pnpm install
 
 # Start development server (Next.js + Electron)
-npm run dev
+pnpm run dev
 ```
 
 This will:
@@ -197,18 +197,18 @@ Once the service is running, visit `http://127.0.0.1:{PORT}/docs` for interactiv
 
 ```bash
 # Start only Next.js dev server
-npm run dev:next
+pnpm run dev:next
 
 # Start only Electron (requires Next.js running)
-npm run dev:electron
+pnpm run dev:electron
 
 # Build for production
-npm run build
+pnpm run build
 
 # Build platform-specific distributables
-npm run build:mac    # macOS
-npm run build:win    # Windows
-npm run build:linux  # Linux
+pnpm run build:mac    # macOS
+pnpm run build:win    # Windows
+pnpm run build:linux  # Linux
 ```
 
 ## Tech Stack
