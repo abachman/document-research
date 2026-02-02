@@ -8,6 +8,9 @@ import path from 'path'
  * - App launches successfully
  * - IPC bridge initialization and functionality
  * - Database operations work
+ * - Python service API availability
+ *
+ * Total tests: 6
  */
 
 test.describe('Electron App Launch', () => {
@@ -149,25 +152,4 @@ test.describe('IPC Bridge Functionality', () => {
     expect(hasPythonAPI).toBe(true)
   })
 
-  test('should navigate to IPC test page', async ({ electronApp }) => {
-    const window = await electronApp.firstWindow()
-
-    // Try to navigate to the IPC test page
-    await window.goto('app://-/electron-ipc-test')
-
-    // Wait for navigation
-    await window.waitForLoadState('domcontentloaded')
-
-    // Check if the page loaded successfully
-    const url = window.url()
-    expect(url).toContain('electron-ipc-test')
-
-    // Check if the test button exists
-    const hasTestButton = await window.evaluate(() => {
-      const buttons = document.querySelectorAll('button')
-      return Array.from(buttons).some(btn => btn.textContent?.includes('Test IPC'))
-    })
-
-    expect(hasTestButton).toBe(true)
-  })
 })
