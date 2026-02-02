@@ -22,7 +22,7 @@ test.describe('Electron App Launch', () => {
     // Launch the Electron app
     const electronApp = await _electron.launch({
       executablePath: appInfo.executable,
-      args: [appInfo.main],
+      args: [appInfo.main, '--no-sandbox', '--disable-dev-shm-usage'],
     })
 
     // Get the first window (main window)
@@ -49,7 +49,7 @@ test.describe('Electron App Launch', () => {
     // Launch the Electron app
     const electronApp = await _electron.launch({
       executablePath: appInfo.executable,
-      args: [appInfo.main],
+      args: [appInfo.main, '--no-sandbox', '--disable-dev-shm-usage'],
     })
 
     // Get the first window
